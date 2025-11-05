@@ -4,10 +4,11 @@ public class ListaEncadeadaSimples {
     Node head;
 
     public void addFirst(int value) {
+        Node newNode = new Node(value);
+
         if (this.head == null) {
-            this.head = new Node(value);
+            this.head = newNode;
         } else {
-            Node newNode = new Node(value);
             newNode.next = this.head;
             this.head = newNode;
         }
@@ -15,10 +16,10 @@ public class ListaEncadeadaSimples {
     }
 
     public void addLast(int value) {
+        Node newNode = new Node(value);
         if (this.head == null) {
-            this.head = new Node(value);
+            this.head = newNode;
         } else {
-            Node newNode = new Node(value);
             Node currNode = this.head;
 
             while (currNode.next != null) {
@@ -92,21 +93,17 @@ public class ListaEncadeadaSimples {
         }
         Node currNode = this.head;
         int count = 0;
-        boolean found = false;
 
         while (currNode != null) {
             if (currNode.value == value) {
                 System.out.println("Número encontrado na posição " + count);
-                found = true;
-                break;
+                continue;
             }
             count++;
             currNode = currNode.next;
         }
 
-        if (!found) {
-            System.out.println("Número não encontrado na lista");
-        }
+        System.out.println("Número não encontrado!");
 
     }
 

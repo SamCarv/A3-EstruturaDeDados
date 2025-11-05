@@ -1,8 +1,78 @@
 import java.util.Scanner;
 
+import ListaEncadeadaDupla.ListaEncadeadaDupla;
 import ListaEncadeadaSimples.ListaEncadeadaSimples;
 
 public class Menu {
+    public static void doubleLinkedList(Scanner scanner, ListaEncadeadaDupla listaEncadeadaDupla) {
+
+        System.out.println("Lista Encadeada Dupla");
+        System.out.println("1 - Adicionar no inicio");
+        System.out.println("2 - Adicionar no final");
+        System.out.println("3 - Ver nós da lista");
+        System.out.println("4 - Remover node final");
+        System.out.println("5 - Remover node do começo");
+        System.out.println("6 - Encontrar valor");
+        System.out.print("Digite a opção desejada: ");
+
+        int option = scanner.nextInt();
+        int value;
+
+        switch (option) {
+            case 1:
+                System.out.println("Digite o valor para adicionar no começo: ");
+                value = scanner.nextInt();
+
+                try {
+                    listaEncadeadaDupla.addFirst(value);
+                    System.out.println("Valor adicionado com sucesso!");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
+                break;
+
+            case 2:
+                System.out.println("Digite o valor para adicionar no final: ");
+                value = scanner.nextInt();
+
+                try {
+                    listaEncadeadaDupla.addLast(value);
+                    System.out.println("Valor adicionado com sucesso!");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                break;
+
+            case 3:
+                listaEncadeadaDupla.transversal();
+
+                break;
+
+            case 4:
+                listaEncadeadaDupla.removeLast();
+                break;
+
+            case 5:
+                listaEncadeadaDupla.removeFirst();
+                break;
+
+            case 6:
+                System.out.println("Digite o valor que deseja encontrar: ");
+                value = scanner.nextInt();
+
+                try {
+                    listaEncadeadaDupla.searchValue(value);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                break;
+
+            default:
+                break;
+        }
+
+    }
 
     public static void linkedList(Scanner scanner, ListaEncadeadaSimples listaEncadeadaSimples) {
 
@@ -11,7 +81,7 @@ public class Menu {
         System.out.println("2 - Adicionar no final");
         System.out.println("3 - Ver nós da lista");
         System.out.println("4 - Remover node final");
-        System.out.println("5 - Remover node do começo");
+        System.out.println("5 - Remover node do cogit push -u originmeço");
         System.out.println("6 - Encontrar valor");
         System.out.print("Digite a opção desejada: ");
 
@@ -77,6 +147,7 @@ public class Menu {
     public static void mainMenu() {
         Scanner scanner = new Scanner(System.in);
         ListaEncadeadaSimples listaEncadeadaSimples = new ListaEncadeadaSimples();
+        ListaEncadeadaDupla listaEncadeadaDupla = new ListaEncadeadaDupla();
         int option = 1;
 
         while (option != 0) {
@@ -111,7 +182,7 @@ public class Menu {
                     break;
 
                 case 5:
-
+                    doubleLinkedList(scanner, listaEncadeadaDupla);
                     break;
 
                 case 0:
