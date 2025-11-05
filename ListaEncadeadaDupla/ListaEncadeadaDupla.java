@@ -1,15 +1,18 @@
-package ListaEncadeadaSimples;
+package ListaEncadeadaDupla;
 
-public class ListaEncadeadaSimples {
+public class ListaEncadeadaDupla {
     Node head;
+    Node tail;
 
     public void addFirst(int value) {
         Node newNode = new Node(value);
 
         if (this.head == null) {
-            this.head = newNode;
+            this.head = this.tail = newNode;
+
         } else {
             newNode.next = this.head;
+            this.head.prev = newNode;
             this.head = newNode;
         }
 
@@ -17,16 +20,13 @@ public class ListaEncadeadaSimples {
 
     public void addLast(int value) {
         Node newNode = new Node(value);
+
         if (this.head == null) {
-            this.head = newNode;
+            this.head = this.tail = newNode;
         } else {
-            Node currNode = this.head;
-
-            while (currNode.next != null) {
-                currNode = currNode.next;
-            }
-
-            currNode.next = newNode;
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
         }
 
     }
@@ -41,7 +41,7 @@ public class ListaEncadeadaSimples {
 
         System.out.println("");
         while (tempNode != null) {
-            System.out.print(tempNode.value + " -> ");
+            System.out.print(tempNode.value + " <-> ");
             tempNode = tempNode.next;
         }
         System.out.println("");
@@ -54,13 +54,13 @@ public class ListaEncadeadaSimples {
             return;
         }
 
-        if (this.head.next == null) {
-            this.head = null;
+        if (this.head == this.tail) {
+            this.head = this.tail = null;
             return;
         }
 
-        Node tempNode = this.head.next;
-        this.head = tempNode;
+        this.head = this.head.next;
+        this.head.prev = null;
     }
 
     public void removeLast() {
@@ -69,20 +69,13 @@ public class ListaEncadeadaSimples {
             return;
         }
 
-        if (this.head.next == null) {
-            this.head = null;
+        if (this.head == this.tail) {
+            this.head = this.tail = null;
             return;
         }
-        Node currNode = this.head;
-        Node prevNode = null;
 
-        while (currNode.next != null) {
-            prevNode = currNode;
-            currNode = currNode.next;
-
-        }
-
-        prevNode.next = null;
+        this.tail = this.tail.prev;
+        this.tail.next = null;
 
     }
 
@@ -110,5 +103,4 @@ public class ListaEncadeadaSimples {
         }
 
     }
-
 }

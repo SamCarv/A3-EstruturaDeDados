@@ -145,7 +145,7 @@ public class Menu {
         }
 
     }
-    
+
     public static void fila(Scanner scanner) {
         System.out.println("Qual vai ser o tamanho dessa Fila ?");
         int capacity = scanner.nextInt();
@@ -267,7 +267,6 @@ public class Menu {
             System.out.println(e.getMessage());
         }
     }
-
 
     public static void mainMenu() {
         Scanner scanner = new Scanner(System.in);
