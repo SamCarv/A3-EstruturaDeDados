@@ -58,14 +58,14 @@ public class Menu {
                 break;
 
             case 6:
-                // System.out.println("Digite o valor que deseja encontrar: ");
-                // value = scanner.nextInt();
+                System.out.println("Digite o valor que deseja encontrar: ");
+                value = scanner.nextInt();
 
-                // try {
-                // listaEncadeadaSimples.searchValue(value);
-                // } catch (Exception e) {
-                // System.out.println(e);
-                // }
+                try {
+                    listaEncadeadaSimples.searchValue(value);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
                 break;
 
             default:

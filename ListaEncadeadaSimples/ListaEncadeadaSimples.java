@@ -85,29 +85,29 @@ public class ListaEncadeadaSimples {
 
     }
 
-    // public void searchValue(int value) {
-    // if (this.head == null) {
-    // System.out.println("Lista vazia!");
-    // return;
-    // }
-    // Node currNode = this.head;
-    // int count = 0;
-    // boolean found = false;
+    public void searchValue(int value) {
+        if (this.head == null) {
+            System.out.println("Lista vazia!");
+            return;
+        }
+        Node currNode = this.head;
+        int count = 0;
+        boolean found = false;
 
-    // while (currNode != null) {
-    // if (currNode.value == value) {
-    // found = true;
-    // break;
-    // }
-    // count++;
-    // currNode = currNode.next;
+        while (currNode != null) {
+            if (currNode.value == value) {
+                System.out.println("Número encontrado na posição " + count);
+                found = true;
+                break;
+            }
+            count++;
+            currNode = currNode.next;
+        }
 
-    // }
+        if (!found) {
+            System.out.println("Número não encontrado na lista");
+        }
 
-    // if (!found) {
-    // System.out.println("Valor não encontrado!");
-    // }
-
-    // }
+    }
 
 }
