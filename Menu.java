@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 import ListaEncadeadaDupla.ListaEncadeadaDupla;
 import ListaEncadeadaSimples.ListaEncadeadaSimples;
+import Listas.Fila;
+import Listas.Pilha;
 
 public class Menu {
     public static void doubleLinkedList(Scanner scanner, ListaEncadeadaDupla listaEncadeadaDupla) {
@@ -143,6 +145,129 @@ public class Menu {
         }
 
     }
+    
+    public static void fila(Scanner scanner) {
+        System.out.println("Qual vai ser o tamanho dessa Fila ?");
+        int capacity = scanner.nextInt();
+        Fila fila = new Fila(capacity);
+        int option = 1;
+        int value;
+
+        try {
+            while (option != 0) {
+                System.out.print("\n\n\n\n\n");
+                System.out.println("------------------ Fila ------------------");
+                System.out.println("1 - Adicionar um numero");
+                System.out.println("2 - Remover o primeiro numero");
+                System.out.println("3 - Buscar um numero da Fila");
+                System.out.println("4 - Mostrar todos os numeros da Fila");
+                System.out.println("5 - Revelar a quantidade de numeros na Fila");
+                System.out.println("0 - Encerrar operacao e deletar todos os dados");
+                System.out.println("------------------------------------------");
+                System.out.println("Digite a opção desejada: ");
+                option = scanner.nextInt();
+
+                Thread.sleep(1000);
+
+                switch (option) {
+                    case 1:
+                        System.out.println("Digite o valor para adicionar no começo: ");
+                        value = scanner.nextInt();
+                        fila.add(value);
+                        Thread.sleep(2000);
+                        break;
+
+                    case 2:
+                        fila.deleteFirstElement();
+                        Thread.sleep(2000);
+                        break;
+
+                    case 3:
+                        System.out.println("Digite a posicao do numero que deseja ver: ");
+                        value = scanner.nextInt();
+                        fila.getNumber(value);
+                        Thread.sleep(2000);
+                        break;
+
+                    case 4:
+                        fila.printAll();
+                        Thread.sleep(2000);
+                        break;
+
+                    case 5:
+                        fila.size();
+                        Thread.sleep(2000);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void pilha(Scanner scanner) {
+        System.out.println("Qual vai ser o tamanho dessa Pilha ?");
+        int capacity = scanner.nextInt();
+        Pilha pilha = new Pilha(capacity);
+        int option = 1;
+        int value;
+
+        try {
+            while (option != 0) {
+                System.out.print("\n\n\n\n\n");
+                System.out.println("------------------ Pilha ------------------");
+                System.out.println("1 - Adicionar um numero");
+                System.out.println("2 - Remover o ultimo numero");
+                System.out.println("3 - Buscar ultimo numero adicionado da Pilha");
+                System.out.println("4 - Mostrar todos os numeros da Pilha");
+                System.out.println("5 - Revelar a quantidade de numeros na Pilha");
+                System.out.println("0 - Encerrar operacao e deletar todos os dados");
+                System.out.println("------------------------------------------");
+                System.out.println("Digite a opção desejada: ");
+                option = scanner.nextInt();
+
+                Thread.sleep(1000);
+
+                switch (option) {
+                    case 1:
+                        System.out.println("Digite o valor para adicionar no começo: ");
+                        value = scanner.nextInt();
+                        pilha.push(value);
+                        Thread.sleep(2000);
+                        break;
+
+                    case 2:
+                        pilha.pop();
+                        Thread.sleep(2000);
+                        break;
+
+                    case 3:
+                        pilha.peek();
+                        Thread.sleep(2000);
+                        break;
+
+                    case 4:
+                        pilha.printAll();
+                        Thread.sleep(2000);
+                        break;
+
+                    case 5:
+                        pilha.size();
+                        Thread.sleep(2000);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     public static void mainMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -155,12 +280,12 @@ public class Menu {
             System.out.println("Estruturas de Dados");
             System.out.println("-------------------");
             System.out.println("1 - Lista");
-            System.out.println("2 - Pilha");
-            System.out.println("3 - Fila");
+            System.out.println("2 - Fila");
+            System.out.println("3 - Pilha");
             System.out.println("4 - Lista Encadeada Simples");
             System.out.println("5 - Lista Encadeada Dupla");
             System.out.println("0 - Sair");
-            System.out.print("Digite a opção desejada: ");
+            System.out.println("Digite a opção desejada: ");
 
             option = scanner.nextInt();
 
@@ -170,11 +295,11 @@ public class Menu {
                     break;
 
                 case 2:
-
+                    fila(scanner);
                     break;
 
                 case 3:
-
+                    pilha(scanner);
                     break;
 
                 case 4:
