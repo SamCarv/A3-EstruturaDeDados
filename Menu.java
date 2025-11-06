@@ -3,6 +3,7 @@ import java.util.Scanner;
 import ListaEncadeadaDupla.ListaEncadeadaDupla;
 import ListaEncadeadaSimples.ListaEncadeadaSimples;
 import Listas.Fila;
+import Listas.Lista;
 import Listas.Pilha;
 
 public class Menu {
@@ -144,6 +145,79 @@ public class Menu {
                 break;
         }
 
+    }
+
+    public static void lista(Scanner scanner) {
+        System.out.println("Qual vai ser o tamanho dessa Lista ?");
+        int capacity = scanner.nextInt();
+        Lista lista = new Lista(capacity);
+        int option = 1;
+        int value;
+
+        try {
+            while (option != 0) {
+                System.out.print("\n\n\n\n\n");
+                System.out.println("------------------ Lista ------------------");
+                System.out.println("1 - Adicionar um numero");
+                System.out.println("2 - Adicionar um numero em tal posicao");
+                System.out.println("3 - Remover um numero da Lista");
+                System.out.println("4 - Buscar um numero adicionado da Lista");
+                System.out.println("5 - Mostrar todos os numeros da Lista");
+                System.out.println("6 - Revelar a quantidade de numeros na Lista");
+                System.out.println("0 - Encerrar operacao e deletar todos os dados");
+                System.out.println("------------------------------------------");
+                System.out.println("Digite a opção desejada: ");
+                option = scanner.nextInt();
+
+                Thread.sleep(1000);
+
+                switch (option) {
+                    case 1:
+                        System.out.println("Digite o valor para adicionar: ");
+                        value = scanner.nextInt();
+                        lista.add(value);
+                        Thread.sleep(2000);
+                        break;
+
+                    case 2:
+                        System.out.println("Digite o valor para adicionar: ");
+                        value = scanner.nextInt();
+                        System.out.println("Digite o numero da posicao para adicionar esse numero: ");
+                        int posicao = scanner.nextInt();
+                        lista.addNumberIn(posicao, value);
+                        Thread.sleep(2000);
+                        break;
+
+                    case 3:
+                        System.out.println("Digite a posicao para remover o numero: ");
+                        value = scanner.nextInt();
+                        lista.remove(value);
+                        Thread.sleep(2000);
+                        break;
+
+                    case 4:
+                        System.out.println("Digite a posicao do numero a buscar: ");
+                        value = scanner.nextInt();
+                        lista.getNumber(value);
+                        Thread.sleep(2000);
+                        break;
+
+                    case 5:
+                        lista.printAll();
+                        Thread.sleep(2000);
+                        break;
+
+                    case 6:
+                        lista.size();
+                        Thread.sleep(2000);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void fila(Scanner scanner) {
@@ -290,7 +364,7 @@ public class Menu {
 
             switch (option) {
                 case 1:
-
+                    lista(scanner);
                     break;
 
                 case 2:

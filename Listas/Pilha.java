@@ -43,7 +43,7 @@ public class Pilha {
     }
 
     public void size() {
-        System.out.println("A pilha contém " + (topo + 1) + " elementos");
+        System.out.println("A pilha contem " + (topo + 1) + " elementos");
     }
 
     public void printAll() {
