@@ -9,6 +9,7 @@ import Listas.Pilha;
 public class Menu {
     public static void doubleLinkedList(Scanner scanner, ListaEncadeadaDupla listaEncadeadaDupla) {
 
+        System.out.print("\n\n\n\n\n\n\n");
         System.out.println("Lista Encadeada Dupla");
         System.out.println("1 - Adicionar no inicio");
         System.out.println("2 - Adicionar no final");
@@ -79,12 +80,13 @@ public class Menu {
 
     public static void linkedList(Scanner scanner, ListaEncadeadaSimples listaEncadeadaSimples) {
 
+        System.out.print("\n\n\n\n\n\n\n");
         System.out.println("Lista Encadeada Simples");
         System.out.println("1 - Adicionar no inicio");
         System.out.println("2 - Adicionar no final");
         System.out.println("3 - Ver nós da lista");
         System.out.println("4 - Remover node final");
-        System.out.println("5 - Remover node do cogit push -u originmeço");
+        System.out.println("5 - Remover node do começo");
         System.out.println("6 - Encontrar valor");
         System.out.print("Digite a opção desejada: ");
 
@@ -156,7 +158,7 @@ public class Menu {
 
         try {
             while (option != 0) {
-                System.out.print("\n\n\n\n\n");
+                System.out.print("\n\n\n\n\n\n\n");
                 System.out.println("------------------ Lista ------------------");
                 System.out.println("1 - Adicionar um numero");
                 System.out.println("2 - Adicionar um numero em tal posicao");
@@ -229,7 +231,7 @@ public class Menu {
 
         try {
             while (option != 0) {
-                System.out.print("\n\n\n\n\n");
+                System.out.print("\n\n\n\n\n\n\n");
                 System.out.println("------------------ Fila ------------------");
                 System.out.println("1 - Adicionar um numero");
                 System.out.println("2 - Remover o primeiro numero");
@@ -252,7 +254,7 @@ public class Menu {
                         break;
 
                     case 2:
-                        fila.deleteFirstElement();
+                        fila.removeFirstElement();
                         Thread.sleep(2000);
                         break;
 
@@ -291,7 +293,7 @@ public class Menu {
 
         try {
             while (option != 0) {
-                System.out.print("\n\n\n\n\n");
+                System.out.print("\n\n\n\n\n\n\n");
                 System.out.println("------------------ Pilha ------------------");
                 System.out.println("1 - Adicionar um numero");
                 System.out.println("2 - Remover o ultimo numero");
@@ -358,7 +360,7 @@ public class Menu {
             System.out.println("4 - Lista Encadeada Simples");
             System.out.println("5 - Lista Encadeada Dupla");
             System.out.println("0 - Sair");
-            System.out.println("Digite a opção desejada: ");
+            System.out.println("Digite a opcao desejada: ");
 
             option = scanner.nextInt();
 

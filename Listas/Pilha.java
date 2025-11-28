@@ -4,16 +4,16 @@ public class Pilha {
     // LIFO
     private int topo;
     private int[] list;
-    private int capacity;
+    private int size;
 
-    public Pilha(int capacity) {
-        this.capacity = capacity;
-        this.list = new int[capacity];
+    public Pilha(int size) {
+        this.size = size;
+        this.list = new int[size];
         this.topo = -1;
     }
 
     public void push(int number) {
-        if (topo == capacity - 1) {
+        if (topo == size - 1) {
             System.out.println("A pilha esta cheia");
             return;
         }
@@ -26,7 +26,8 @@ public class Pilha {
             System.out.println("A pilha esta vazia");
             return;
         }
-        int removed = list[topo--];
+        int removed = list[topo];
+        topo--;
         System.out.println("Numero removido da pilha: " + removed);
     }
 
@@ -51,10 +52,13 @@ public class Pilha {
             System.out.println("A pilha esta vazia");
             return;
         }
-        System.out.print("Elementos na pilha: ");
-        for (int i = topo; i >= 0; i--) {
-            System.out.print(list[i] + " ");
+
+        System.out.println("Elementos na Pilha: ");
+        System.out.print("[");
+        for (int i = 0; i <= topo; i++) {
+            System.out.print(list[i]);
+            if (i <= topo - 1) System.out.print(", ");
         }
-        System.out.println();
+        System.out.print("]");
     }
 }

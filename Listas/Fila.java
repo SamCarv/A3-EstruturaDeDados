@@ -26,7 +26,7 @@ public class Fila {
         System.out.println("Numero adicionado: " + number);
     }
 
-    public void deleteFirstElement() {
+    public void removeFirstElement() {
         if (size == 0) {
             System.out.println("A fila esta vazia");
             return;
@@ -54,13 +54,18 @@ public class Fila {
     }
 
     public void printAll() {
-        System.out.print("Fila atual: ");
-
-        for (int i = 0; i < size; i++) {
-            int realIndex = (frente + i) % capacity;
-            System.out.print(list[realIndex] + " ");
+        if (size == 0) {
+            System.out.println("A fila esta vazia");
+            return;
         }
 
-        System.out.println();
+        System.out.println("Elementos na Fila:");
+        System.out.print("[");
+        for (int i = 0; i < size; i++) {
+            int realIndex = (frente + i) % capacity;
+            System.out.print(list[realIndex]);
+            if (i < size - 1) System.out.print(", ");
+        }
+        System.out.print("]");
     }
 }

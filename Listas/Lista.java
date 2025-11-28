@@ -1,21 +1,21 @@
 package Listas;
 
 public class Lista {
-    private int[] elements;
+    private int[] list;
     private int size;
 
-    public Lista(int capacity) {
-        this.elements = new int[capacity];
+    public Lista(int size) {
+        this.list = new int[size];
         size = 0;
     }
 
     public void add(int element) {
-        if (size >= elements.length) {
+        if (size >= list.length) {
             System.out.println("A Lista esta cheia");
             return;
         }
 
-        elements[size] = element;
+        list[size] = element;
         size++;
         System.out.println("Numero adicionado: " + element);
     }
@@ -26,16 +26,16 @@ public class Lista {
             return;
         }
 
-        if (size >= elements.length) {
+        if (size >= list.length) {
             System.out.println("A Lista esta cheia");
             return;
         }
 
         for (int i = size - 1; i >= position; i--) {
-            elements[i + 1] = elements[i];
+            list[i + 1] = list[i];
         }
 
-        elements[position] = element;
+        list[position] = element;
         size++;
         System.out.println("Numero: '"+ element +"' adicionado na posicao: " + position);
     }
@@ -45,9 +45,9 @@ public class Lista {
             System.out.println("Posicao fora do tamanho da Lista");
             return;
         }
-        int numberRemoved = elements[position];
+        int numberRemoved = list[position];
         for (int i = position; i < size - 1; i++) {
-            elements[i] = elements[i + 1];
+            list[i] = list[i + 1];
         }
         size--;
         System.out.println("Numero removido: " + numberRemoved);
@@ -59,14 +59,14 @@ public class Lista {
             return;
         }
 
-        System.out.println("Numero no indice " + index + ": " + elements[index]);
+        System.out.println("Numero no indice " + index + ": " + list[index]);
     }
 
     public void printAll() {
         System.out.println("Elementos na Lista: ");
         System.out.print("[");
         for (int i = 0; i < size; i++) {
-            System.out.print(elements[i]);
+            System.out.print(list[i]);
             if (i < size - 1) System.out.print(", ");
         }
         System.out.print("]");
